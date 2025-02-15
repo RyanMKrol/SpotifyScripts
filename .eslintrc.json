@@ -1,45 +1,30 @@
 {
   "env": {
-    "browser": true,
-    "es6": true
+      "browser": true,
+      "es2021": true
   },
-  "extends": ["airbnb-base", "plugin:jsdoc/recommended"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
+  "extends": ["plugin:jsdoc/recommended", "airbnb-base"],
+  "plugins": ["jsdoc"],
+  "overrides": [
+      {
+          "env": {
+              "node": true
+          },
+          "files": [
+              ".eslintrc.{js,cjs}"
+          ],
+          "parserOptions": {
+              "sourceType": "script"
+          }
+      }
+  ],
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+      "ecmaVersion": "latest",
+      "sourceType": "module"
   },
   "rules": {
-    "no-use-before-define": [
-      "error",
-      {
-        "functions": false
-      }
-    ],
-    "jsdoc/require-description": [
-      "error",
-      {
-        "checkConstructors": false,
-        "contexts": [
-          "ArrowFunctionExpression, ClassDeclaration, ClassExpression, FunctionDeclaration, FunctionExpression, MethodDefinition"
-        ]
-      }
-    ],
-    "jsdoc/require-jsdoc": [
-      "error",
-      {
-        "require": {
-          "ArrowFunctionExpression": true,
-          "ClassDeclaration": true,
-          "ClassExpression": true,
-          "FunctionDeclaration": true,
-          "FunctionExpression": true,
-          "MethodDefinition": true
-        }
-      }
-    ]
+      "no-use-before-define": "off",
+      "no-nested-ternary": "off",
+      "no-console": "off"
   }
 }

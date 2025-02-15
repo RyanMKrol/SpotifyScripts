@@ -1,30 +1,34 @@
 {
   "name": "SpotifyScripts",
   "version": "1.0.0",
-  "license": "MIT",
+  "description": "",
+  "type": "module",
+  "//": "experimental-specifier-resolution=node allows me to not have to specify .../index.js in my imports",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run lint && ./node_modules/.bin/babel src --out-dir build",
-    "lint": "eslint src/ --ext .js",
-    "start": "npm run-script build && node build/app.js"
+    "_generatePlaylist": "node --experimental-specifier-resolution=node src/scripts/generatePlaylist",
+    "lint": "eslint src",
+    "script:generatePlaylist": "npm run lint && npm run _generatePlaylist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanMKrol/SpotifyScripts.git"
+  },
+  "author": "Ryan Krol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanMKrol/SpotifyScripts/issues"
+  },
+  "homepage": "https://github.com/RyanMKrol/SpotifyScripts#readme",
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^30.4.1",
-    "husky": "^4.2.5",
-    "jsdoc": "^3.6.5"
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-jsdoc": "^46.4.6"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.10.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "./scripts/husky"
-    }
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "fast-xml-parser": "^4.2.7",
+    "node-fetch": "^3.3.2"
   }
 }
